@@ -25,7 +25,12 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+*MainActivity为主Activity界面，其功能有
+*1.Listview形式加载SQLite中获取的内容，显示模板采用了Item.xml文件。
+*2.点击"+"号新建日程，长按修改或者删除。
+*3.点击左上角呼出导航栏。
+*/
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
