@@ -30,6 +30,7 @@ import java.util.Map;
 *1.Listview形式加载SQLite中获取的内容，显示模板采用了Item.xml文件。
 *2.点击"+"号新建日程，长按修改或者删除。
 *3.点击左上角呼出导航栏。
+*4.右上角查看关于我们的信息。
 */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -86,11 +87,12 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        //左上角显示导航列表
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
-
+    
+    //点击返回键方法。
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -107,7 +109,7 @@ public class MainActivity extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
+    //右上角选项设置，这里只有一个关于我们。
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -117,6 +119,7 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+        //加载关于我们的Activity
             Intent intent = new Intent(MainActivity.this,AboutActivity.class);
             startActivity(intent);
             //Toast.makeText(MainActivity.this, "你点击了设置", Toast.LENGTH_SHORT).show();
