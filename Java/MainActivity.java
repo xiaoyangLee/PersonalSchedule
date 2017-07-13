@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
+    //导航栏菜单点击与执行相关操作。
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity
             takePhoto();
 
         } else if (id == R.id.nav_gallery) {
-            // Toast.makeText(this, "对不起，此功能暂时未开发!", Toast.LENGTH_SHORT).show();
+            //打开相册
             openGallery();
         } else if (id == R.id.nav_slideshow) {
             openSlideshow();
@@ -148,9 +148,11 @@ public class MainActivity extends AppCompatActivity
             openSetUp();
 
         } else if (id == R.id.nav_share) {
+            //执行app的分享操作
             shareApp();
 
         } else if (id == R.id.nav_send) {
+            //联系我们
             sendURL();
         }
 
