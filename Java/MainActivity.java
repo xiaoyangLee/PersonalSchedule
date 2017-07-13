@@ -44,16 +44,20 @@ public class MainActivity extends AppCompatActivity
 
         //显示已有的数据
         final ListView listView = (ListView) findViewById(R.id.listview);
+        //实例化DBHelper类
         final DBHelper helper = new DBHelper(MainActivity.this);
+        
+        //将ListView与SQLite绑定，设置Adapter适配器
         SimpleAdapter adapter = new SimpleAdapter(MainActivity.this, helper.queryAll(), R.layout.item,
                 new String[]{"id", "date", "schedule"},
                 new int[]{R.id.schedule_id, R.id.schedule_date, R.id.schedule_text});
         listView.setAdapter(adapter);
+        
         //设置长按事件
         listView.setOnCreateContextMenuListener(listviewLongPress);
         // 设置点击进入详情页
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            //将ListView与SQLite绑定，设置Adapter适配器
+            
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //点击Item事件，会到详细信息显示的Activity
@@ -66,7 +70,7 @@ public class MainActivity extends AppCompatActivity
                 //listdata与listtext为所有的日期、日程信息组成的列表，这里按点击的位置取出被点击Item的那条即可。
                 String date = listdata.get(position) + "";
                 String schedule = listtext.get(position) + "";
-
+                //将数据传入intent中带入下个Activity
                 intent.putExtra("date", date);
                 intent.putExtra("schedule", schedule);
                 startActivity(intent);
@@ -81,6 +85,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //点击"+"号按钮执行新建操作
                 addNewSchedule();
             }
         });
