@@ -53,14 +53,17 @@ public class MainActivity extends AppCompatActivity
         listView.setOnCreateContextMenuListener(listviewLongPress);
         // 设置点击进入详情页
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //将ListView与SQLite绑定，设置Adapter适配器
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //点击Item事件，会到详细信息显示的Activity
                 Intent intent = new Intent(MainActivity.this, TextActivity.class);
-
+                //将日期和日程详细信息取出，转为List<String>泛型格式。
                 List<String> listdata;
                 List<String> listtext;
                 listdata = helper.queryDate();
                 listtext = helper.querySchedule();
+                //listdata与listtext为所有的日期、日程信息组成的列表，这里按点击的位置取出被点击Item的那条即可。
                 String date = listdata.get(position) + "";
                 String schedule = listtext.get(position) + "";
 
