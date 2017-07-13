@@ -242,12 +242,12 @@ public class MainActivity extends AppCompatActivity
         intent.putExtra("class", "add");
         startActivity(intent);
     }
-
+    //执行长按操作
     View.OnCreateContextMenuListener listviewLongPress = new View.OnCreateContextMenuListener() {
         @Override
         public void onCreateContextMenu(final ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
             final AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-            //弹出消息提示
+            //长按弹出消息提示
             new AlertDialog.Builder(MainActivity.this)
                     .setTitle("请选择操作")
                     .setIcon(android.R.drawable.ic_dialog_info)
@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity
                             //删除选中的数据
                             helper.deleteDate(id);
                             Toast.makeText(MainActivity.this, "id=" + list.get("id") + "的数据已被删除", Toast.LENGTH_SHORT).show();
-
+                            //刷新Listview显示，用了重启Activity的方法。这里比较低效，不建议使用，是一个快速见效的办法。
                             Intent intent = new Intent(MainActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
