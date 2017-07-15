@@ -103,7 +103,7 @@ public class DBHelper {
     }
 
     /**
-     * List<>类型的查询日期。
+     * 返回值类型为List<String>类型的查询日期。
      *
      * @return
      */
