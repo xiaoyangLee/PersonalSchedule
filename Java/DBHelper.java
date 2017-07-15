@@ -16,6 +16,10 @@ import java.util.List;
 /**
  * Created by xiaoyang on 2017/6/21.
  * DBHelper类用于做数据库SQLite的操作，是一个封装的核心类
+ * 主要完成的功能有：
+ * 1.数据库的初始化操作
+ * 2.各种条件的查询并返回结果集
+ * 3.删除和插入操作
  */
 
 public class DBHelper {
