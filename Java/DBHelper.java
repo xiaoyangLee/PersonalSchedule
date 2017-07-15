@@ -136,7 +136,7 @@ public class DBHelper {
     }
 
     /**
-     * 查询id信息
+     * 查询id信息，返回值类型为ArrayList<>泛型，目的是这样根据key=>value的形式可以取值。
      */
     public ArrayList<HashMap<String, Object>> queryDateById() {
         ArrayList<HashMap<String, Object>> listData;
