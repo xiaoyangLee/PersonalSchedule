@@ -15,6 +15,7 @@ import java.util.List;
 
 /**
  * Created by xiaoyang on 2017/6/21.
+ * DBHelper类用于做数据库SQLite的操作，是一个封装的核心类
  */
 
 public class DBHelper {
