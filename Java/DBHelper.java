@@ -26,10 +26,12 @@ public class DBHelper {
     private static final String DATABASE_NAME = "datastorage";  //数据库名称
     private static final int DATABASE_VERSION = 1;  //数据库版本号
     private static final String TABLE_NAME = "schedule"; //保存表名称
-    private static final String[] COLUMNS = {"id", "date", "schedule"};
+    private static final String[] COLUMNS = {"id", "date", "schedule"}; //表中共有3个字段,id唯一标识，date存储日期，schedule存储日程信息
     private DBOpenHelper helper;
     private SQLiteDatabase db;
-
+    /**
+    *内部静态类，继承SQLiteOpenHelper,目的是创建表
+    */
     private static class DBOpenHelper extends SQLiteOpenHelper {
 
         private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + COLUMNS[0] + " integer primary key autoincrement, "
