@@ -2,6 +2,7 @@ package com.android.xiaoyang.personalschedule;
 
 /**
  * Created by xiaoyang on 2017/6/21.
+ * 数据库的model类，定义数据的类型
  */
 
 public class DataBean {
