@@ -13,7 +13,10 @@ import android.app.DatePickerDialog;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-
+/**
+* EditActivity主要用于编辑、修改新建的日程
+* 通过传入的Intent获取数据，编辑或者修改的操作，通过flag标志位来判断
+*/
 public class EditActivity extends AppCompatActivity {
 
     private EditText dateEditText;
@@ -94,7 +97,7 @@ public class EditActivity extends AppCompatActivity {
             }
         }
     }
-
+    //重置内容方法
     private void reset() {
         dateEditText.setText("");
         scheduleEditText.setText("");
@@ -104,7 +107,9 @@ public class EditActivity extends AppCompatActivity {
      * 将信息保存到数据库中
      */
     private void saveInfo() {
+        //创建DataBean数据库Model类对象
         DataBean data = new DataBean();
+        //创建DBHelper数据库操作类对象
         DBHelper helper = new DBHelper(EditActivity.this);
 
         String schedulText = scheduleEditText.getText().toString();
@@ -118,10 +123,12 @@ public class EditActivity extends AppCompatActivity {
         data.setDate(dateText);
         data.setSchedule(schedulText);
         if (flag == 1) {
+            //执行修改操作
             helper.update(data,id);
             Toast.makeText(EditActivity.this, "修改成功！", Toast.LENGTH_SHORT).show();
             return;
         } else if (flag == 0) {
+            //执行插入操作
             helper.insert(data);
             Toast.makeText(EditActivity.this, "保存成功啦！", Toast.LENGTH_SHORT).show();
             return;
@@ -164,7 +171,8 @@ public class EditActivity extends AppCompatActivity {
         Intent alarms = new Intent(AlarmClock.ACTION_SET_ALARM);
         startActivity(alarms);
     }
-
+    
+    //重写onBackPressed方法，当前activity退栈，返回到主界面，这样会刷新主界面的显示。
     @Override
     public void onBackPressed() {
         finish();
