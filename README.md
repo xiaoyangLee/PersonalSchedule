@@ -1,6 +1,7 @@
 # PersonalSchedule
-建议下载直接安装app-debug.apk，Android程序目录配置文件比较繁多，我尽可能上传上来。
------------------------------------------------------------------------------------------
+
+(建议下载直接安装app-debug.apk，Android程序目录配置文件比较繁多，我尽可能上传上来)
+
 Android课设-个人日程
 PersonalSchedule is an android application to manage your schedules.
 
